@@ -1,4 +1,30 @@
-<div class="bg-slate-100 px-4 py-3 shadow-md flex justify-between items-center">
+<!-- <div class="bg-slate-100 px-4 py-3 shadow-md flex justify-between items-center">
     <span class="text-xl">{{title()}}</span>
     <app-primary-button [label]="'Cart (' + cartService.cart().length + ')'" (btnClicked)="showBtnClicked()" />
-</div>
+</div> -->
+
+
+<div>
+    <section>
+      <span class="input layout-row">
+        <input type="number" class="large" data-test-id="app-input1" [(ngModel)]="firstInputVal" (ngModelChange)="firstInputConv($event)" />
+        <label class="suffix" data-test-id="app-label1">{{selectedUnit?.unit}}</label>
+      </span>
+      <select data-test-id="app-select1" (change)="unitChangeOne($event)">
+        <option *ngFor="let option of lengthOptions"  [value]="option.unit" [selected]="option.unit === selectedUnit.unit">{{option.label}}</option>
+      </select>
+    </section>
+  
+    <label>⇋</label>
+  
+    <section>
+      <span class="input layout-row"  >
+        <input type="number" class="large" data-test-id="app-input2" [(ngModel)]="secondInputVal"  (ngModelChange)="secondInputConv($event)" />
+        <label class="suffix" data-test-id="app-label2">{{selectedUnitTwo?.unit}}</label>
+      </span>
+      <select data-test-id="app-select2" (change)="unitChangeTwo($event)">
+        <option [value]="option.unit" *ngFor="let option of lengthOptions" [selected]="option.unit === selectedUnitTwo.unit">{{option.label}}</option>
+      </select>
+    </section>
+  </div>
+  
